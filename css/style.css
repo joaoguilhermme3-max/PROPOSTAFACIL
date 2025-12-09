@@ -1,0 +1,227 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ===== BASE ===== */
+body {
+  background: #f5f7fa;
+  color: #333;
+  min-height: 100vh;
+}
+
+/* ===== APP ===== */
+.app {
+  max-width: 1300px;
+  margin: 20px auto;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+/* ===== HEADER ===== */
+header {
+  background: linear-gradient(135deg, #007bff, #00b4d8);
+  color: #fff;
+  padding: 25px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+header h1 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+header .lead {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* ===== BOTÕES ===== */
+.controls {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  border: none;
+  cursor: pointer;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.btn-primary {
+  background: #007bff;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #0056b3;
+}
+
+.btn-ghost {
+  background: #fff;
+  color: #007bff;
+  border: 1px solid #007bff;
+}
+
+.btn-ghost:hover {
+  background: #007bff;
+  color: #fff;
+}
+
+/* ===== GRID ===== */
+.grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* ===== CARD ===== */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* ===== FORM ===== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field label {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+input, select, textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1.5px solid #ccc;
+  font-size: 0.95rem;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.col {
+  flex: 1;
+}
+
+/* ===== TABELA ===== */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.table th {
+  background: #007bff;
+  color: #fff;
+}
+
+.table tr:hover {
+  background: #f1f9ff;
+}
+
+.empty {
+  text-align: center;
+  color: #777;
+}
+
+/* ===== BUSCA ===== */
+.search {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #f0f4f8;
+  padding: 16px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+/* ===== LOGIN ===== */
+body.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0a0f1f, #06101c);
+}
+
+.login-container {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(12px);
+  padding: 32px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 380px;
+  color: #e5eef7;
+  text-align: center;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.4);
+}
+
+.login-container input {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .controls {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+}
