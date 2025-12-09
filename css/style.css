@@ -1,227 +1,201 @@
-/* ===== RESET ===== */
+/* =================== RESET =================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
-/* ===== BASE ===== */
 body {
-  background: #f5f7fa;
-  color: #333;
+  background: #0b0f17; /* Preto azulado */
+  color: #e5eaff;
   min-height: 100vh;
 }
 
-/* ===== APP ===== */
-.app {
-  max-width: 1300px;
-  margin: 20px auto;
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-  overflow: hidden;
-}
-
-/* ===== HEADER ===== */
+/* =================== CABEÇALHO =================== */
 header {
-  background: linear-gradient(135deg, #007bff, #00b4d8);
-  color: #fff;
-  padding: 25px 30px;
+  background: linear-gradient(135deg, #0d1b2a, #0a0e1a);
+  border-bottom: 1px solid #1e2a38;
+  padding: 20px 30px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
 header h1 {
   font-size: 2rem;
   font-weight: 600;
+  color: #4ac7ff;
 }
 
 header .lead {
-  font-size: 0.95rem;
-  opacity: 0.9;
+  font-size: 0.9rem;
+  opacity: 0.8;
 }
 
-/* ===== BOTÕES ===== */
-.controls {
+/* =================== MENU SUPERIOR =================== */
+.menu {
   display: flex;
-  gap: 10px;
+  gap: 20px;
 }
 
+.menu-link {
+  color: #d0e7ff;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.menu-link:hover {
+  background: #1b2a41;
+  color: #4ac7ff;
+  transform: translateY(-2px);
+}
+
+/* =================== BOTÕES =================== */
 .btn {
+  padding: 10px 16px;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
-  padding: 10px 16px;
-  border-radius: 10px;
-  font-weight: 500;
+  font-weight: 600;
   transition: 0.2s;
 }
 
 .btn-primary {
-  background: #007bff;
-  color: #fff;
+  background: #4ac7ff;
+  color: #00141a;
 }
 
 .btn-primary:hover {
-  background: #0056b3;
+  opacity: 0.9;
+  transform: translateY(-2px);
 }
 
 .btn-ghost {
-  background: #fff;
-  color: #007bff;
-  border: 1px solid #007bff;
+  background: transparent;
+  color: #4ac7ff;
+  border: 1px solid #4ac7ff;
 }
 
 .btn-ghost:hover {
-  background: #007bff;
-  color: #fff;
+  background: #4ac7ff;
+  color: #00141a;
 }
 
-/* ===== GRID ===== */
-.grid {
+/* =================== CONTEÚDO PRINCIPAL =================== */
+main.grid {
   display: grid;
-  grid-template-columns: 320px 1fr;
+  grid-template-columns: 330px 1fr;
   gap: 20px;
   padding: 20px;
 }
 
-/* ===== CARD ===== */
+/* =================== CARDS =================== */
 .card {
-  background: #fff;
-  border-radius: 12px;
+  background: #0f1624;
+  border: 1px solid #1a2435;
+  border-radius: 14px;
   padding: 20px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 0 20px rgba(0, 170, 255, 0.05);
 }
 
-/* ===== FORM ===== */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.field {
-  display: flex;
-  flex-direction: column;
-}
-
+/* =================== FORMULÁRIOS =================== */
 .field label {
-  font-weight: 600;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #9ab6d6;
 }
 
 input, select, textarea {
-  padding: 10px;
+  background: #0d1320;
+  border: 1px solid #1e2a38;
+  color: #dce6ff;
+  padding: 12px;
   border-radius: 8px;
-  border: 1.5px solid #ccc;
   font-size: 0.95rem;
+  transition: 0.2s;
 }
 
-input:focus,
-select:focus,
-textarea:focus {
+input:focus, select:focus, textarea:focus {
+  border-color: #4ac7ff;
   outline: none;
-  border-color: #007bff;
 }
 
-textarea {
-  resize: vertical;
-  min-height: 60px;
-}
-
-.row {
-  display: flex;
-  gap: 10px;
-}
-
-.col {
-  flex: 1;
-}
-
-/* ===== TABELA ===== */
+/* =================== TABELA =================== */
 .table {
   width: 100%;
   border-collapse: collapse;
-}
-
-.table th, .table td {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
+  margin-top: 15px;
 }
 
 .table th {
-  background: #007bff;
-  color: #fff;
+  text-align: left;
+  padding: 12px;
+  background: #122035;
+  color: #4ac7ff;
+}
+
+.table td {
+  padding: 12px;
+  border-bottom: 1px solid #1a2435;
 }
 
 .table tr:hover {
-  background: #f1f9ff;
+  background: #0f1a2e;
 }
 
-.empty {
-  text-align: center;
-  color: #777;
-}
-
-/* ===== BUSCA ===== */
-.search {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 10px;
-}
-
-/* ===== FOOTER ===== */
-footer {
-  background: #f0f4f8;
-  padding: 16px;
-  text-align: center;
-  font-size: 0.85rem;
-  color: #555;
-}
-
-/* ===== LOGIN ===== */
-body.login {
+/* =================== FILTROS =================== */
+.filters {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #0a0f1f, #06101c);
-}
-
-.login-container {
-  background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(12px);
-  padding: 32px;
-  border-radius: 16px;
-  width: 100%;
-  max-width: 380px;
-  color: #e5eef7;
-  text-align: center;
-  box-shadow: 0 8px 28px rgba(0,0,0,0.4);
-}
-
-.login-container input {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.2);
-  color: #fff;
+  gap: 10px;
   margin-bottom: 12px;
 }
 
-/* ===== RESPONSIVO ===== */
+/* =================== RESPONSIVIDADE =================== */
 @media (max-width: 900px) {
-  .grid {
+  main.grid {
     grid-template-columns: 1fr;
   }
 
   header {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
+    text-align: center;
   }
 
-  .controls {
-    width: 100%;
-    flex-wrap: wrap;
+  .menu {
+    justify-content: center;
   }
 }
+
+@media (max-width: 600px) {
+  .menu {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+}
+/* =================== RODAPÉ =================== */
+.footer {
+  margin-top: 40px;
+  padding: 25px;
+  text-align: center;
+  background: #0d1320;
+  border-top: 1px solid #1a2435;
+  color: #8fb4d9;
+  font-size: 0.9rem;
+}
+
+.footer strong {
+  color: #4ac7ff; /* azul neon */
+}
+
+.footer:hover {
+  background: #0f1624;
+  transition: 0.3s;
+}
+
