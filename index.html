@@ -2,21 +2,149 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Login - PropostaFácil</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PropostaFácil</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="login">
-  <div class="login-container">
-    <h1>PropostaFácil</h1>
+<body>
 
-    <form id="loginForm">
-      <input id="email" type="email" placeholder="Email">
-      <input id="password" type="password" placeholder="Senha">
-      <button class="btn btn-primary">Entrar</button>
-    </form>
+  <!-- Redireciona para o login caso não esteja logado -->
+  <script>
+    if (!localStorage.getItem('proposta_session')) {
+      window.location.href = "login.html";
+    }
+  </script>
+
+  <div class="app">
+
+    <!-- ===================== CABEÇALHO ===================== -->
+    <header>
+
+      <div>
+        <h1>PropostaFácil</h1>
+        <p class="lead">Gerencie orçamentos facilmente.</p>
+      </div>
+
+      <!-- MENU NOVO -->
+      <nav class="menu">
+        <a href="#inicio" class="menu-link">Início</a>
+        <a href="#sobre" class="menu-link">Sobre</a>
+        <a href="#servicos" class="menu-link">Serviços</a>
+        <a href="#contato" class="menu-link">Contato</a>
+      </nav>
+
+      <!-- Botões do sistema -->
+      <nav class="controls">
+        <button id="btnImport" class="btn btn-ghost">Importar JSON</button>
+        <button id="btnExport" class="btn btn-ghost">Exportar JSON</button>
+        <button id="btnClear" class="btn btn-ghost">Limpar tudo</button>
+        <button id="logout" class="btn btn-primary">Sair</button>
+      </nav>
+
+    </header>
+
+    <!-- ===================== SEÇÕES DO SITE ===================== -->
+
+    <section id="inicio"></section>
+
+    <section id="sobre" class="card" style="margin: 20px;">
+      <h2>Sobre</h2>
+      <p>Esta é a seção sobre o sistema. Aqui você poderá explicar como o PropostaFácil funciona.</p>
+    </section>
+
+    <section id="servicos" class="card" style="margin: 20px;">
+      <h2>Serviços</h2>
+      <p>Coloque aqui informações sobre os serviços oferecidos ou funcionalidades do sistema.</p>
+    </section>
+
+    <section id="contato" class="card" style="margin: 20px;">
+      <h2>Contato</h2>
+      <p>Email para suporte: suporte@propostafacil.com</p>
+    </section>
+
+    <!-- ===================== CONTEÚDO PRINCIPAL ===================== -->
+    <main class="grid">
+
+      <!-- ASIDE DO FORMULÁRIO -->
+      <aside class="card">
+        <form id="form" novalidate>
+
+          <input type="hidden" id="id">
+
+          <div class="field">
+            <label>Título</label>
+            <input id="title" type="text" required>
+          </div>
+
+          <div class="field">
+            <label>Fornecedor</label>
+            <input id="supplier" type="text" required>
+          </div>
+
+          <div class="field">
+            <label>Categoria</label>
+            <select id="category" required>
+              <option value="">Selecione</option>
+              <option>Projeto</option>
+              <option>Compra</option>
+              <option>Serviço</option>
+            </select>
+          </div>
+
+          <div class="row">
+            <div class="col field">
+              <label>Qtd</label>
+              <input id="quantity" type="number" value="1" min="1">
+            </div>
+
+            <div class="col field">
+              <label>Preço</label>
+              <input id="unitPrice" type="number" step="0.01">
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Data</label>
+            <input id="date" type="date">
+          </div>
+
+          <textarea id="notes" placeholder="Observações"></textarea>
+
+          <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
+      </aside>
+
+      <!-- TABELA DE ITENS -->
+      <section class="card">
+        <div class="filters">
+          <input id="q" class="search" type="search" placeholder="Pesquisar...">
+        </div>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Título</th><th>Fornecedor</th><th>Categoria</th>
+              <th>Qtd</th><th>Unit.</th><th>Total</th><th>Data</th><th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </section>
+
+    </main>
   </div>
 
-  <script src="js/login.js"></script>
+  <input id="fileInput" type="file" accept="application/json" hidden>
+
+  <script src="script.js"></script>
+
+  <footer class="footer">
+  <p>© 2025 PropostaFácil — Todos os direitos reservados.</p>
+</footer>
+
 </body>
 </html>
+
