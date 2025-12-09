@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - PropostaFácil</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Poppins, sans-serif; }
+
+    body {
+      background: linear-gradient(135deg, #0a0f1f, #06101c);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e5eef7;
+    }
+
+    .login-container {
+      width: 100%;
+      max-width: 380px;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 32px;
+      border-radius: 16px;
+      text-align: center;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.4);
+      animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 { font-size: 28px; margin-bottom: 10px; font-weight: 600; }
+
+    p { font-size: 14px; color: #94a3b8; margin-bottom: 24px; }
+
+    .field { text-align: left; margin-bottom: 18px; }
+
+    label { font-size: 13px; color: #94a3b8; display: block; margin-bottom: 6px; }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      color: #e5eef7;
+      font-size: 14px;
+    }
+
+    input:focus { outline: 1px solid #06b6d4; }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      margin-top: 6px;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #06b6d4, #4ac7ff);
+      color: #00141a;
+    }
+
+    .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); }
+
+    .link {
+      margin-top: 18px;
+      font-size: 13px;
+      color: #94a3b8;
+    }
+
+    .link a { color: #06b6d4; text-decoration: none; }
+    .link a:hover { text-decoration: underline; }
+  </style>
+</head>
+
+<body>
+
+  <div class="login-container">
+    <h1>PropostaFácil</h1>
+    <p>Acesse sua conta para continuar</p>
+
+    <form id="loginForm">
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="seuemail@gmail.com" required />
+      </div>
+
+      <div class="field">
+        <label for="password">Senha</label>
+        <input id="password" type="password" placeholder="Digite sua senha" required />
+      </div>
+
+      <button class="btn btn-primary" type="submit">Entrar</button>
+    </form>
+
+  </div>
+
+  <script>
+    // Usuários permitidos (para teste)
+    const demoUsers = [
+      { email: 'jguilhermme@gmail.com', password: '123456', name: 'Admin' },
+      { email: 'user@proposta.com', password: 'senha123', name: 'Usuário' }
+    ];
+
+    const form = document.getElementById("loginForm");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value.trim().toLowerCase();
+      const password = document.getElementById("password").value;
+
+      const user = demoUsers.find(u => u.email === email && u.password === password);
+
+      if (!user) {
+        alert("Email ou senha incorretos.");
+        return;
+      }
+
+      // Salva sessão
+      const session = {
+        email: user.email,
+        name: user.name,
+        token: btoa(user.email + "|" + Date.now())
+      };
+
+      localStorage.setItem("proposta_session", JSON.stringify(session));
+
+      // Redireciona
+      window.location.href = "index.html";
+    });
+  </script>
+
+</body>
+</html>
+
