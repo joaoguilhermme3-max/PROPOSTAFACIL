@@ -199,4 +199,13 @@ input:focus, select:focus, textarea:focus {
   transition: 0.3s;
 }
 
+input, select, textarea {
+  background: #0d1320;
+  border: 1px solid #1e2a38;
+  color: #dce6ff;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+
 
