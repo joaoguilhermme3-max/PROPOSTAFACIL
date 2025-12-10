@@ -327,3 +327,10 @@ logoutBtn && logoutBtn.addEventListener("click", logout);
   loadBudgets();
   renderTable();
 })();
+
+/ Botão de sair (logout)
+document.getElementById("logout").addEventListener("click", () => {
+  localStorage.removeItem("proposta_session"); // Apaga a sessão
+  window.location.href = "login.html"; // Volta para o login
+});
+
