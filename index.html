@@ -5,18 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PropostaFácil</title>
 
+  <!-- Fonte e CSS -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-</head>
 
-<body>
-
-  <!-- Redireciona para o login caso não esteja logado -->
+  <!-- Verificação de sessão -->
   <script>
     if (!localStorage.getItem('proposta_session')) {
       window.location.href = "login.html";
     }
   </script>
+</head>
+
+<body>
 
   <div class="app">
 
@@ -28,7 +29,7 @@
         <p class="lead">Gerencie orçamentos facilmente.</p>
       </div>
 
-      <!-- MENU NOVO -->
+      <!-- MENU SUPERIOR -->
       <nav class="menu">
         <a href="#inicio" class="menu-link">Início</a>
         <a href="#sobre" class="menu-link">Sobre</a>
@@ -36,7 +37,7 @@
         <a href="#contato" class="menu-link">Contato</a>
       </nav>
 
-      <!-- Botões do sistema -->
+      <!-- Controles do sistema -->
       <nav class="controls">
         <button id="btnImport" class="btn btn-ghost">Importar JSON</button>
         <button id="btnExport" class="btn btn-ghost">Exportar JSON</button>
@@ -46,29 +47,28 @@
 
     </header>
 
-    <!-- ===================== SEÇÕES DO SITE ===================== -->
-
+    <!-- ===================== SEÇÕES ===================== -->
     <section id="inicio"></section>
 
     <section id="sobre" class="card" style="margin: 20px;">
       <h2>Sobre</h2>
-      <p>Esta é a seção sobre o sistema. Aqui você poderá explicar como o PropostaFácil funciona.</p>
+      <p>Este sistema foi desenvolvido para facilitar o gerenciamento de orçamentos.</p>
     </section>
 
     <section id="servicos" class="card" style="margin: 20px;">
       <h2>Serviços</h2>
-      <p>Coloque aqui informações sobre os serviços oferecidos ou funcionalidades do sistema.</p>
+      <p>Aqui você pode cadastrar orçamentos, organizar valores e exportar arquivos JSON.</p>
     </section>
 
     <section id="contato" class="card" style="margin: 20px;">
       <h2>Contato</h2>
-      <p>Email para suporte: suporte@propostafacil.com</p>
+      <p>Email de suporte: suporte@propostafacil.com</p>
     </section>
 
     <!-- ===================== CONTEÚDO PRINCIPAL ===================== -->
     <main class="grid">
 
-      <!-- ASIDE DO FORMULÁRIO -->
+      <!-- FORMULÁRIO -->
       <aside class="card">
         <form id="form" novalidate>
 
@@ -117,7 +117,7 @@
         </form>
       </aside>
 
-      <!-- TABELA DE ITENS -->
+      <!-- TABELA -->
       <section class="card">
         <div class="filters">
           <input id="q" class="search" type="search" placeholder="Pesquisar...">
@@ -141,10 +141,12 @@
 
   <script src="script.js"></script>
 
+  <!-- ===================== RODAPÉ ===================== -->
   <footer class="footer">
-  <p>© 2025 PropostaFácil — Todos os direitos reservados.</p>
-</footer>
+    <p>© 2025 PropostaFácil — Todos os direitos reservados.</p>
+  </footer>
 
 </body>
 </html>
+
 
