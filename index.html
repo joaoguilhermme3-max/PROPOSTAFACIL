@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PropostaFácil</title>
 
-  <!-- Fonte e CSS -->
+  <!-- Fontes e CSS -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 
-  <!-- Verificação de sessão -->
+  <!-- Verifica se está logado -->
   <script>
     if (!localStorage.getItem('proposta_session')) {
       window.location.href = "login.html";
@@ -21,7 +21,7 @@
 
   <div class="app">
 
-    <!-- ===================== CABEÇALHO ===================== -->
+    <!-- ============================= CABEÇALHO ============================= -->
     <header>
 
       <div>
@@ -37,7 +37,7 @@
         <a href="#contato" class="menu-link">Contato</a>
       </nav>
 
-      <!-- Controles do sistema -->
+      <!-- BOTÕES DE CONTROLE -->
       <nav class="controls">
         <button id="btnImport" class="btn btn-ghost">Importar JSON</button>
         <button id="btnExport" class="btn btn-ghost">Exportar JSON</button>
@@ -47,17 +47,24 @@
 
     </header>
 
-    <!-- ===================== SEÇÕES ===================== -->
+    <!-- ============================= SEÇÕES INSTITUCIONAIS ============================= -->
+
     <section id="inicio"></section>
 
     <section id="sobre" class="card" style="margin: 20px;">
       <h2>Sobre</h2>
-      <p>Este sistema foi desenvolvido para facilitar o gerenciamento de orçamentos.</p>
+      <p>
+        O PropostaFácil é um sistema criado para facilitar o cadastro,
+        gestão e organização de orçamentos de forma rápida e eficiente.
+      </p>
     </section>
 
     <section id="servicos" class="card" style="margin: 20px;">
       <h2>Serviços</h2>
-      <p>Aqui você pode cadastrar orçamentos, organizar valores e exportar arquivos JSON.</p>
+      <p>
+        Cadastre itens, exporte arquivos, importe dados e gerencie todos os
+        valores com facilidade.
+      </p>
     </section>
 
     <section id="contato" class="card" style="margin: 20px;">
@@ -65,7 +72,7 @@
       <p>Email de suporte: suporte@propostafacil.com</p>
     </section>
 
-    <!-- ===================== CONTEÚDO PRINCIPAL ===================== -->
+    <!-- ============================= CONTEÚDO PRINCIPAL ============================= -->
     <main class="grid">
 
       <!-- FORMULÁRIO -->
@@ -75,49 +82,53 @@
           <input type="hidden" id="id">
 
           <div class="field">
-            <label>Título</label>
+            <label for="title">Título</label>
             <input id="title" type="text" required>
           </div>
 
           <div class="field">
-            <label>Fornecedor</label>
+            <label for="supplier">Fornecedor</label>
             <input id="supplier" type="text" required>
           </div>
 
           <div class="field">
-            <label>Categoria</label>
+            <label for="category">Categoria</label>
             <select id="category" required>
               <option value="">Selecione</option>
               <option>Projeto</option>
               <option>Compra</option>
               <option>Serviço</option>
+              <option>Outro</option>
             </select>
           </div>
 
           <div class="row">
             <div class="col field">
-              <label>Qtd</label>
-              <input id="quantity" type="number" value="1" min="1">
+              <label for="quantity">Qtd</label>
+              <input id="quantity" type="number" min="1" value="1" required>
             </div>
 
             <div class="col field">
-              <label>Preço</label>
-              <input id="unitPrice" type="number" step="0.01">
+              <label for="unitPrice">Preço</label>
+              <input id="unitPrice" type="number" step="0.01" required>
             </div>
           </div>
 
           <div class="field">
-            <label>Data</label>
-            <input id="date" type="date">
+            <label for="date">Data</label>
+            <input id="date" type="date" required>
           </div>
 
-          <textarea id="notes" placeholder="Observações"></textarea>
+          <div class="field">
+            <label for="notes">Observações</label>
+            <textarea id="notes" placeholder="Detalhes ou informações adicionais"></textarea>
+          </div>
 
           <button type="submit" class="btn btn-primary">Salvar</button>
         </form>
       </aside>
 
-      <!-- TABELA -->
+      <!-- ============================= TABELA ============================= -->
       <section class="card">
         <div class="filters">
           <input id="q" class="search" type="search" placeholder="Pesquisar...">
@@ -126,27 +137,37 @@
         <table class="table">
           <thead>
             <tr>
-              <th>Título</th><th>Fornecedor</th><th>Categoria</th>
-              <th>Qtd</th><th>Unit.</th><th>Total</th><th>Data</th><th>Ações</th>
+              <th>Título</th>
+              <th>Fornecedor</th>
+              <th>Categoria</th>
+              <th>Qtd</th>
+              <th>Unit.</th>
+              <th>Total</th>
+              <th>Data</th>
+              <th>Ações</th>
             </tr>
           </thead>
           <tbody id="tbody"></tbody>
         </table>
-      </section>
 
+      </section>
     </main>
   </div>
 
+  <!-- Input invisível para importação de JSON -->
   <input id="fileInput" type="file" accept="application/json" hidden>
 
+  <!-- Scripts -->
   <script src="script.js"></script>
 
-  <!-- ===================== RODAPÉ ===================== -->
+  <!-- ============================= RODAPÉ ============================= -->
   <footer class="footer">
     <p>© 2025 PropostaFácil — Todos os direitos reservados.</p>
   </footer>
 
 </body>
 </html>
+
+
 
 
