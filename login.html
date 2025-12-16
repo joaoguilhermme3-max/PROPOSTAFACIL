@@ -8,7 +8,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Poppins, sans-serif; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
 
     body {
       background: linear-gradient(135deg, #0a0f1f, #06101c);
@@ -28,21 +33,31 @@
       text-align: center;
       backdrop-filter: blur(12px);
       box-shadow: 0 8px 28px rgba(0,0,0,0.4);
-      animation: fadeIn 0.8s ease;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      font-weight: 600;
     }
 
-    h1 { font-size: 28px; margin-bottom: 10px; font-weight: 600; }
+    p {
+      font-size: 14px;
+      color: #94a3b8;
+      margin-bottom: 24px;
+    }
 
-    p { font-size: 14px; color: #94a3b8; margin-bottom: 24px; }
+    .field {
+      text-align: left;
+      margin-bottom: 18px;
+    }
 
-    .field { text-align: left; margin-bottom: 18px; }
-
-    label { font-size: 13px; color: #94a3b8; display: block; margin-bottom: 6px; }
+    label {
+      font-size: 13px;
+      color: #94a3b8;
+      display: block;
+      margin-bottom: 6px;
+    }
 
     input {
       width: 100%;
@@ -51,10 +66,11 @@
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 10px;
       color: #e5eef7;
-      font-size: 14px;
     }
 
-    input:focus { outline: 1px solid #06b6d4; }
+    input:focus {
+      outline: 1px solid #06b6d4;
+    }
 
     .btn {
       width: 100%;
@@ -65,7 +81,6 @@
       border-radius: 10px;
       border: none;
       cursor: pointer;
-      transition: 0.2s;
     }
 
     .btn-primary {
@@ -73,16 +88,16 @@
       color: #00141a;
     }
 
-    .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); }
-
     .link {
       margin-top: 18px;
       font-size: 13px;
       color: #94a3b8;
     }
 
-    .link a { color: #06b6d4; text-decoration: none; }
-    .link a:hover { text-decoration: underline; }
+    .link a {
+      color: #06b6d4;
+      text-decoration: none;
+    }
   </style>
 </head>
 
@@ -95,63 +110,53 @@
     <form id="loginForm">
 
       <div class="field">
-        <label for="email">Email</label>
-        <input id="email" type="email" placeholder="seuemail@gmail.com" required />
+        <label>Email</label>
+        <input id="email" type="email" required>
       </div>
 
       <div class="field">
-        <label for="password">Senha</label>
-        <input id="password" type="password" placeholder="Digite sua senha" required />
+        <label>Senha</label>
+        <input id="password" type="password" required>
       </div>
 
       <button class="btn btn-primary" type="submit">Entrar</button>
 
-<p class="link" style="margin-top: 15px;">
-  Não tem conta? <a href="register.html">Criar cadastro</a>
-</p>
-      
-    </form>
+      <p class="link">
+        Não tem conta? <a href="register.html">Criar cadastro</a>
+      </p>
 
+    </form>
   </div>
 
   <script>
-    // Usuários permitidos (para teste)
-    const demoUsers = [
-      { email: 'jguilhermme@gmail.com', password: '123456', name: 'Admin' },
-      { email: 'user@proposta.com', password: 'senha123', name: 'Usuário' }
+    const users = [
+      { email: "jguilhermme@gmail.com", password: "123456" }
     ];
 
-    const form = document.getElementById("loginForm");
-
-    form.addEventListener("submit", (e) => {
+    document.getElementById("loginForm").addEventListener("submit", (e) => {
       e.preventDefault();
 
-      const email = document.getElementById("email").value.trim().toLowerCase();
-      const password = document.getElementById("password").value;
+      const email = email.value.trim().toLowerCase();
+      const password = password.value;
 
-      const user = demoUsers.find(u => u.email === email && u.password === password);
+      const user = users.find(u => u.email === email && u.password === password);
 
       if (!user) {
-        alert("Email ou senha incorretos.");
+        alert("Email ou senha incorretos");
         return;
       }
 
-      // Salva sessão
-      const session = {
-        email: user.email,
-        name: user.name,
-        token: btoa(user.email + "|" + Date.now())
-      };
+      // 🔥 SESSION STORAGE (some ao fechar o navegador)
+      sessionStorage.setItem("proposta_session", "logado");
 
-      localStorage.setItem("proposta_session", JSON.stringify(session));
-
-      // Redireciona
       window.location.href = "index.html";
     });
   </script>
 
 </body>
 </html>
+
+
 
 
 
