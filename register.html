@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criar Cadastro - PropostaFácil</title>
+
+  <!-- IMPORTANTE: CAMINHO CERTO DO CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<!-- IMPORTANTE: CLASSE login -->
+<body class="login">
+
+  <div class="login-container">
+    <h1>Criar Cadastro</h1>
+    <p>Preencha os dados para continuar</p>
+
+    <form id="registerForm">
+
+      <div class="field">
+        <label for="regName">Nome completo</label>
+        <input id="regName" type="text" placeholder="Seu nome" required>
+      </div>
+
+      <div class="field">
+        <label for="regEmail">Email</label>
+        <input id="regEmail" type="email" placeholder="seuemail@gmail.com" required>
+      </div>
+
+      <div class="field">
+        <label for="regPass">Senha</label>
+        <input id="regPass" type="password" placeholder="Digite uma senha" required>
+      </div>
+
+      <button class="btn btn-primary" type="submit">Cadastrar</button>
+    </form>
+
+    <p class="link" style="margin-top: 15px;">
+      Já tem conta? <a href="login.html">Entrar</a>
+    </p>
+  </div>
+
+  <script>
+    const registerForm = document.getElementById("registerForm");
+
+    registerForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("regName").value.trim();
+      const email = document.getElementById("regEmail").value.trim().toLowerCase();
+      const pass = document.getElementById("regPass").value.trim();
+
+      if (!name || !email || !pass) {
+        alert("Preencha todos os campos!");
+        return;
+      }
+
+      const users = JSON.parse(localStorage.getItem("users") || "[]");
+
+      if (users.some(u => u.email === email)) {
+        alert("Esse email já está cadastrado!");
+        return;
+      }
+
+      users.push({ name, email, password: pass });
+      localStorage.setItem("users", JSON.stringify(users));
+
+      alert("Cadastro criado com sucesso!");
+      window.location.href = "login.html";
+    });
+  </script>
+
+</body>
+</html>
