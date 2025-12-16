@@ -7,7 +7,7 @@
 }
 
 body {
-  background: #0b0f17; /* Preto azulado */
+  background: #0b0f17;
   color: #e5eaff;
   min-height: 100vh;
 }
@@ -18,7 +18,6 @@ header {
   border-bottom: 1px solid #1e2a38;
   padding: 20px 30px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
   gap: 20px;
   flex-wrap: wrap;
@@ -26,7 +25,6 @@ header {
 
 header h1 {
   font-size: 2rem;
-  font-weight: 600;
   color: #4ac7ff;
 }
 
@@ -35,7 +33,7 @@ header .lead {
   opacity: 0.8;
 }
 
-/* =================== MENU SUPERIOR =================== */
+/* =================== MENU =================== */
 .menu {
   display: flex;
   gap: 20px;
@@ -43,17 +41,14 @@ header .lead {
 
 .menu-link {
   color: #d0e7ff;
-  font-weight: 500;
   text-decoration: none;
   padding: 8px 12px;
   border-radius: 6px;
-  transition: 0.2s;
 }
 
 .menu-link:hover {
   background: #1b2a41;
   color: #4ac7ff;
-  transform: translateY(-2px);
 }
 
 /* =================== BOTÕES =================== */
@@ -63,17 +58,11 @@ header .lead {
   border: none;
   cursor: pointer;
   font-weight: 600;
-  transition: 0.2s;
 }
 
 .btn-primary {
   background: #4ac7ff;
   color: #00141a;
-}
-
-.btn-primary:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
 }
 
 .btn-ghost {
@@ -82,15 +71,10 @@ header .lead {
   border: 1px solid #4ac7ff;
 }
 
-.btn-ghost:hover {
-  background: #4ac7ff;
-  color: #00141a;
-}
-
-/* =================== CONTEÚDO PRINCIPAL =================== */
+/* =================== GRID PRINCIPAL =================== */
 main.grid {
   display: grid;
-  grid-template-columns: 330px 1fr;
+  grid-template-columns: 350px 1fr;
   gap: 20px;
   padding: 20px;
 }
@@ -101,29 +85,54 @@ main.grid {
   border: 1px solid #1a2435;
   border-radius: 14px;
   padding: 20px;
-  box-shadow: 0 0 20px rgba(0, 170, 255, 0.05);
 }
 
-/* =================== FORMULÁRIOS =================== */
+/* =================== FORMULÁRIO =================== */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* cada campo */
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
 .field label {
-  margin-bottom: 5px;
-  font-weight: 500;
+  margin-bottom: 6px;
+  font-size: 0.85rem;
   color: #9ab6d6;
 }
 
-input, select, textarea {
+/* inputs */
+input,
+select,
+textarea {
   background: #0d1320;
   border: 1px solid #1e2a38;
   color: #dce6ff;
   padding: 12px;
   border-radius: 8px;
   font-size: 0.95rem;
-  transition: 0.2s;
 }
 
-input:focus, select:focus, textarea:focus {
+input:focus,
+select:focus,
+textarea:focus {
   border-color: #4ac7ff;
   outline: none;
+}
+
+/* REMOVE layout lado a lado */
+.row {
+  display: flex;
+  flex-direction: column;
+}
+
+.col {
+  width: 100%;
 }
 
 /* =================== TABELA =================== */
@@ -134,10 +143,10 @@ input:focus, select:focus, textarea:focus {
 }
 
 .table th {
-  text-align: left;
-  padding: 12px;
   background: #122035;
   color: #4ac7ff;
+  padding: 12px;
+  text-align: left;
 }
 
 .table td {
@@ -145,40 +154,11 @@ input:focus, select:focus, textarea:focus {
   border-bottom: 1px solid #1a2435;
 }
 
-.table tr:hover {
-  background: #0f1a2e;
-}
-
-/* =================== FILTROS =================== */
+/* =================== FILTRO =================== */
 .filters {
-  display: flex;
-  gap: 10px;
   margin-bottom: 12px;
 }
 
-/* =================== RESPONSIVIDADE =================== */
-@media (max-width: 900px) {
-  main.grid {
-    grid-template-columns: 1fr;
-  }
-
-  header {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .menu {
-    justify-content: center;
-  }
-}
-
-@media (max-width: 600px) {
-  .menu {
-    flex-direction: column;
-    text-align: center;
-    gap: 10px;
-  }
-}
 /* =================== RODAPÉ =================== */
 .footer {
   margin-top: 40px;
@@ -187,25 +167,25 @@ input:focus, select:focus, textarea:focus {
   background: #0d1320;
   border-top: 1px solid #1a2435;
   color: #8fb4d9;
-  font-size: 0.9rem;
 }
 
-.footer strong {
-  color: #4ac7ff; /* azul neon */
+/* =================== RESPONSIVO =================== */
+@media (max-width: 900px) {
+  main.grid {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .menu {
+    justify-content: center;
+  }
 }
 
-.footer:hover {
-  background: #0f1624;
-  transition: 0.3s;
-}
 
-input, select, textarea {
-  background: #0d1320;
-  border: 1px solid #1e2a38;
-  color: #dce6ff;
-  padding: 12px;
-  border-radius: 8px;
-}
 
 
 
