@@ -128,37 +128,30 @@
     </form>
   </div>
 
-  <script>
-    const users = [
-      { email: "jguilhermme@gmail.com", password: "123456" }
-    ];
+ <script>
+  const users = [
+    { email: "jguilhermme@gmail.com", password: "123456" }
+  ];
 
-    document.getElementById("loginForm").addEventListener("submit", (e) => {
-      e.preventDefault();
+  document.getElementById("loginForm").addEventListener("submit", (e) => {
+    e.preventDefault();
 
-      const email = email.value.trim().toLowerCase();
-      const password = password.value;
+    const emailInput = document.getElementById("email").value.trim().toLowerCase();
+    const passwordInput = document.getElementById("password").value;
 
-      const user = users.find(u => u.email === email && u.password === password);
+    const user = users.find(u => u.email === emailInput && u.password === passwordInput);
 
-      if (!user) {
-        alert("Email ou senha incorretos");
-        return;
-      }
+    if (!user) {
+      alert("Email ou senha incorretos");
+      return;
+    }
 
-      // 🔥 SESSION STORAGE (some ao fechar o navegador)
-      sessionStorage.setItem("proposta_session", "logado");
+    localStorage.setItem("proposta_session", "true");
 
-      window.location.href = "index.html";
-    });
-     localStorage.setItem('proposta_session', 'true');
+    window.location.href = "index.html";
+  });
+</script>
 
-    window.location.href = "principal.html";
-  } else {
-    alert("Login inválido!");
-  }
-}
-  </script>
 
 </body>
 </html>
