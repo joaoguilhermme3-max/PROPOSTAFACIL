@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login - PropostaFácil</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -108,7 +108,6 @@
     <p>Acesse sua conta para continuar</p>
 
     <form id="loginForm">
-
       <div class="field">
         <label>Email</label>
         <input id="email" type="email" required>
@@ -120,41 +119,38 @@
       </div>
 
       <button class="btn btn-primary" type="submit">Entrar</button>
-
-      <p class="link">
-        Não tem conta? <a href="register.html">Criar cadastro</a>
-      </p>
-
     </form>
   </div>
 
- <script>
-  const users = [
-    { email: "jguilhermme@gmail.com", password: "123456" }
-  ];
+  <script>
+    const users = [
+      { email: "jguilhermme@gmail.com", password: "123456" }
+    ];
 
-  document.getElementById("loginForm").addEventListener("submit", (e) => {
-    e.preventDefault();
+    document.getElementById("loginForm").addEventListener("submit", (e) => {
+      e.preventDefault();
 
-    const emailInput = document.getElementById("email").value.trim().toLowerCase();
-    const passwordInput = document.getElementById("password").value;
+      const email = document.getElementById("email").value.trim().toLowerCase();
+      const password = document.getElementById("password").value;
 
-    const user = users.find(u => u.email === emailInput && u.password === passwordInput);
+      const user = users.find(u => u.email === email && u.password === password);
 
-    if (!user) {
-      alert("Email ou senha incorretos");
-      return;
-    }
+      if (!user) {
+        alert("Email ou senha incorretos");
+        return;
+      }
 
-    localStorage.setItem("proposta_session", "true");
+      //  SALVA LOGIN
+      localStorage.setItem("proposta_session", "true");
 
-    window.location.href = "index.html";
-  });
-</script>
-
+      // REDIRECIONA
+      window.location.href = "index.html";
+    });
+  </script>
 
 </body>
 </html>
+
 
 
 
